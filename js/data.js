@@ -10,6 +10,7 @@ $("document").ready(function() {
     $("#add-data").click(addContent);
     $("#search-data").click(searchData);
     $("#getnodeinfo").click(getNodeInfo);
+    $("#sethostinfo").click(getHostInfo);
 });
 
 function getContent() {
@@ -21,6 +22,7 @@ function getContent() {
 
 function getInfo() {
     getNodeInfo();
+    getHostInfo();
 }
 
 function getNodeInfo() {
@@ -28,6 +30,14 @@ function getNodeInfo() {
         { success: setNodeInfo,
           type: "GET",
           dataType: "json" });
+}
+
+function getHostInfo() {
+    $.getJSON("http://jsonip.com/?callback=?", function (data) {
+        console.log(data);
+        hostInfo = '<div class="host-info", style="padding: 5px 0;"> Ngnix Host IP Address: ' + location.host + ' <br/> Ngnix Host Name: ' + location.hostname + '</div>';
+        document.getElementById("hostInfo").innerHTML = hostInfo;
+    });
 }
 
 function setNodeInfo(data, status, jqxhr) {
