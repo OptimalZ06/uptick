@@ -29,6 +29,12 @@
 	padding: 5px 0;
 }
 
+.current-node-info {
+	background: #4C4C4E;
+	color: #fff;
+	line-height 28px;
+}
+
 .search-group {
 	margin: 10px 0;
 }
